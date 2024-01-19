@@ -1,0 +1,21 @@
+package com.comejia.di.factura.controllers;
+
+import com.comejia.di.factura.models.Invoice;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/some")
+public class SomeController {
+
+    @Autowired
+    private Invoice invoice;
+
+    @GetMapping("/show")
+    public Invoice show() {
+        invoice.setDescription("DESDE SOME");
+        return invoice;
+    }
+}
